@@ -86,3 +86,31 @@ impl Sha1Hasher {
         text
     }
 }
+
+// sha512
+#[wasm_bindgen]
+pub struct Sha512Hasher {
+    hasher: sha2::Sha512,
+}
+
+#[wasm_bindgen]
+impl Sha512Hasher {
+    pub fn new() -> Sha512Hasher {
+        let hasher = sha2::Sha512::new();
+        Sha512Hasher { hasher }
+    }
+
+    #[inline(always)]
+    pub fn update(&mut self, data: &[u8]) {
+        self.hasher.update(data);
+    }
+
+    /// Returns the final hash result as a string of hexadecimal characters.
+    pub fn digest(&mut self) -> alloc::string::String {
+        let a = self.hasher.clone();
+        let result = a.finalize();
+        let mut text = alloc::string::String::new();
+        write!(text, "{:x}", result).unwrap();
+        text
+    }
+}
