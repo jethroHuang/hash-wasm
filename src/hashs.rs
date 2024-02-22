@@ -1,12 +1,11 @@
 extern crate alloc;
 use core::fmt::Write;
 
-use sha2::{Sha256, Digest};
 use md5::Md5;
 use sha1::Sha1;
+use sha2::{Digest, Sha256};
 
 use wasm_bindgen::prelude::*;
-
 
 #[wasm_bindgen]
 pub struct Sha256Hasher {
@@ -33,7 +32,6 @@ impl Sha256Hasher {
         text
     }
 }
-
 
 #[wasm_bindgen]
 pub struct Md5Hasher {
