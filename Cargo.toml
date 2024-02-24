@@ -22,10 +22,6 @@ md-5 = "0.10.6"
 sha2 = "0.10.8"
 sha1 = "0.10.6"
 
-[dependencies.web-sys]
-version = "0.3.68"
-features = [ "console" ]
-
 [dev-dependencies]
 wasm-bindgen-test = "0.3.34"
 
